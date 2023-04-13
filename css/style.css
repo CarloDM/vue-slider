@@ -5,7 +5,7 @@
 }
 body{
   font-family: monospace;
-  background-color: cornflowerblue;
+  background-color: rgb(59, 59, 59);
   color: white;
 }
 
@@ -17,15 +17,17 @@ body{
 }
 .container{
   position: relative;
-  width: 835px;
-  height: 300px;
+  width: 85vw;
+  height: 85vh;
   background-color: brown;
 }
 .slider{
   float: left;
   background-color: blueviolet;
   height: 100%;
-  width: 700px;
+  width: 80%;
+  box-shadow: 0px 0px 10px rgb(0, 0, 0);
+
 }
 .images-wrapper{
   width: 100%;
@@ -44,9 +46,10 @@ body{
   display: flex;
   flex-direction: column;
   float: left;
-  width: 135px;
+  width: 20%;
   background-color: black;
   height: 100%;
+  box-shadow: 0px 0px 10px rgb(0, 0, 0);
 }
 .thumbs img{
   width: 100%;
@@ -105,4 +108,9 @@ body{
 
 .item-thumb{
   cursor: pointer;
+}
+
+.on {
+  width: 100vw;
+  display: none;
 }

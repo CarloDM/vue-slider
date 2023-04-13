@@ -25,6 +25,8 @@ createApp( {
 
       inputCounter : 0,
 
+      on : true,
+
       thumbs : {
         thumb1 : 'act',
         thumb2 : '',
@@ -83,6 +85,7 @@ createApp( {
     changeActive: function(numb){
     this.inputCounter = numb - 1;
     this.addActive();
+    this.over();
     console.log(numb);
   },// -------------------------------------------
   
@@ -94,10 +97,11 @@ createApp( {
     this.autoScroll = setInterval(this.next,3000), console.log('setInterval')
   },// -------------------------------------------
 
-
   },
   
   mounted(){
+    this.addActive();
+
     setTimeout(() => {
       this.autoScroll = setInterval(this.next,3000), console.log('setInterval')
     }, 2000);
