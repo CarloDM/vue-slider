@@ -13,14 +13,14 @@
 
   <div class="main-wrapper">
     <div id="app" class="container">
-      <!-- <img   id="offCanvasImg" class="on" :src="images[inputCounter]" alt=""> -->
+      <img @mouseover="over" @click="toggleImg" id="offCanvasImg" :class="offCanv" :src="images[inputCounter]" alt="">
 
-      <div class="buttons">
-        <div @click="prev" @mouseover="over" @mouseleave="leave"  class="next"></div>
-        <div @click="next" @mouseover="over" @mouseleave="leave" class="prev"></div>
+      <div v-if="!on" class="buttons">
+        <div @click="prev" @mouseover="over" @mouseleave="leave"  :class="nextClass"></div>
+        <div @click="next" @mouseover="over" @mouseleave="leave" :class="prevClass"></div>
       </div>
 
-      <div class="slider">
+      <div v-if="!on" class="slider">
 
         <div class="images-wrapper">
           <img  @mouseover="over" 
@@ -30,7 +30,7 @@
 
       </div>
 
-      <div @mouseover="over" @mouseleave="leave" class="thumbs">
+      <div v-if="!on" @mouseover="over" @mouseleave="leave" class="thumbs">
         <img @click="changeActive(1)" id="thumb1" :class="this.thumbs.thumb1" :src="images[0]" alt="">
         <img @click="changeActive(2)" id="thumb2" :class="this.thumbs.thumb2" :src="images[1]" alt="">
         <img @click="changeActive(3)" id="thumb3" :class="this.thumbs.thumb3" :src="images[2]" alt="">

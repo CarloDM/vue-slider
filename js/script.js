@@ -25,7 +25,11 @@ createApp( {
 
       inputCounter : 0,
 
-      on : true,
+      on : false,
+
+      offCanv: 'off',
+      nextClass: 'next',
+      prevClass: 'prev',
 
       thumbs : {
         thumb1 : 'act',
@@ -84,6 +88,7 @@ createApp( {
 
     changeActive: function(numb){
     this.inputCounter = numb - 1;
+    this.toggleImg();
     this.addActive();
     this.over();
     console.log(numb);
@@ -96,7 +101,19 @@ createApp( {
   leave: function(){
     this.autoScroll = setInterval(this.next,3000), console.log('setInterval')
   },// -------------------------------------------
+  toggleImg: function(){
+    this.on = !this.on;
+    if (this.on){
+      this.offCanv = 'on',
+      this.over(),
+      this.nextClass = 'off',
+      this.prevClass = 'off'
+    }
 
+    else {this.offCanv = 'off',this.over()}
+    this.nextClass = 'next',
+    this.prevClass = 'prev'
+  }
   },
   
   mounted(){

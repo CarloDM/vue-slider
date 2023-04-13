@@ -19,7 +19,7 @@ body{
   position: relative;
   width: 85vw;
   height: 85vh;
-  background-color: brown;
+
 }
 .slider{
   float: left;
@@ -55,7 +55,7 @@ body{
   width: 100%;
   height: calc(100% / 5);
   object-fit: cover;
-  opacity: .5;
+  opacity: .35;
 }
 
 .thumbs img.active{
@@ -111,6 +111,14 @@ body{
 }
 
 .on {
-  width: 100vw;
+width: 100%; 
+  display: block;
+}
+
+.off{
   display: none;
+}
+
+#offCanvasImg{
+width: 100%;
 }
