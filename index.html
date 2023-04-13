@@ -15,7 +15,7 @@
     <div id="app" class="container">
 
       <div class="buttons">
-        <div @click="next" class="next"></div>
+        <div @click="next"  class="next"></div>
         <div @click="prev" class="prev"></div>
       </div>
 
@@ -29,11 +29,12 @@
       </div>
 
       <div class="thumbs">
-        <!-- <img class="active" src="img/01.jpg" alt="">
-        <img src="img/01.jpg" alt="">
-        <img src="img/01.jpg" alt="">
-        <img src="img/01.jpg" alt="">
-        <img src="img/01.jpg" alt=""> -->
+        <img @click="changeActive" id="thumb1" :class="this.thumbs.thumb1" :src="images[0]" alt="">
+        <img @click="addActive" id="thumb2" :class="this.thumbs.thumb2" :src="images[1]" alt="">
+        <img @click="addActive" id="thumb3" :class="this.thumbs.thumb3" :src="images[2]" alt="">
+        <img @click="addActive" id="thumb4" :class="this.thumbs.thumb4" :src="images[3]" alt="">
+        <img @click="addActive" id="thumb5" :class="this.thumbs.thumb5" :src="images[4]" alt="">
+
       </div>
       
 
