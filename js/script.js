@@ -76,11 +76,13 @@ createApp( {
         return this.thumbs.thumb5 = 'active', console.log('return if',this.thumbs)
       }
       return console.log('return else',this.thumbs.thumb1)
+  },
+
+  changeActive: function(numb){
+    this.inputCounter = numb - 1;
+    this.addActive()
+    console.log(numb)
   }
-
-    // thumbsScroll(inCount, n){
-
-    // }
 
   },
   
