@@ -21,7 +21,7 @@ createApp( {
         "assets-slider/img/04.webp",
         "assets-slider/img/05.webp",],
 
-      autoScroll : setInterval(this.next,3000),
+      autoScroll : null,
 
       inputCounter : 0,
 
@@ -36,24 +36,26 @@ createApp( {
   },
 
   methods: {
+
+    // prev e next button
     next: function(){
       if (this.inputCounter > this.images.length -2 ) {
-        return this.inputCounter = 0 , this.addActive(); 
+        return  this.inputCounter = 0 , this.addActive(), console.log('next zero') 
         }
-        return this.inputCounter++,
-        console.log('next') , this.addActive();       
-    },
-
+          this.inputCounter++,
+          console.log('next') ; this.addActive();       
+    },// -------------------------------------------
     prev: function(){
-
       if (this.inputCounter <= 0 ) {
-        return this.inputCounter = this.images.length -1, this.addActive();  
+        return  this.inputCounter = this.images.length -1, this.addActive();  
         }else
-        return this.inputCounter--, 
+          this.inputCounter--, 
         console.log('prev') , this.addActive();  
-    },
+    },// -------------------------------------------
 
+    // add & change thumb active class--------------
     addActive: function() {
+      // reset thumbs
       this.thumbs = {
         thumb1 : '',
         thumb2 : '',
@@ -61,8 +63,9 @@ createApp( {
         thumb4 : '',
         thumb5 : '',
     }
-      inputC = this.inputCounter ;
 
+      inputC = this.inputCounter ;
+    // set active
       if (inputC == 0) {
           this.thumbs.thumb1 = 'active'
       }else if (inputC == 1) {
@@ -75,31 +78,29 @@ createApp( {
           this.thumbs.thumb5 = 'active'
       }
       console.log('thumbs',this.thumbs)
-  },
+  },// -------------------------------------------
 
-  changeActive: function(numb){
+    changeActive: function(numb){
     this.inputCounter = numb - 1;
     this.addActive();
     console.log(numb);
-  },
+  },// -------------------------------------------
   
-  over: function(event){
-    return clearInterval(this.autoScroll),
-    console.log(event)
-  },
-  
-  leave: function(event){
-    return this.autoScroll = setInterval(this.next,3000),
-    console.log(event)
-  },
+  // mause over & leave 
+  over: function(){
+    clearInterval(this.autoScroll), console.log('clearInterval')
+  },// -------------------------------------------
+  leave: function(){
+    this.autoScroll = setInterval(this.next,3000), console.log('setInterval')
+  },// -------------------------------------------
 
 
   },
   
   mounted(){
-
-
-    this.addActive();
+    setTimeout(() => {
+      this.autoScroll = setInterval(this.next,3000), console.log('setInterval')
+    }, 2000);
     console.log('mounted')
   }
 
