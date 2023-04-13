@@ -22,7 +22,8 @@
       <div class="slider">
 
         <div class="images-wrapper">
-          <img id="imageIn" class="active" :src="images[inputCounter]" alt="">
+          <img  @mouseover="over" 
+                @mouseleave="leave" id="imageIn" class="active" :src="images[inputCounter]" alt="">
 
         </div>
 

@@ -20,19 +20,18 @@ createApp( {
         "assets-slider/img/03.webp",
         "assets-slider/img/04.webp",
         "assets-slider/img/05.webp",],
-      
+
+      autoScroll : setInterval(this.next,3000),
+
       inputCounter : 0,
-      active:'active',
+
       thumbs : {
         thumb1 : 'act',
         thumb2 : '',
         thumb3 : '',
         thumb4 : '',
         thumb5 : '',
-    },
-
-
-
+      }
     }
   },
 
@@ -42,7 +41,7 @@ createApp( {
         return this.inputCounter = 0 , this.addActive(); 
         }
         return this.inputCounter++,
-        console.log('next',this.inputCounter, this.images.length - 1), this.addActive();       
+        console.log('next') , this.addActive();       
     },
 
     prev: function(){
@@ -51,7 +50,7 @@ createApp( {
         return this.inputCounter = this.images.length -1, this.addActive();  
         }else
         return this.inputCounter--, 
-        console.log('prev',this.inputCounter) , this.addActive();  
+        console.log('prev') , this.addActive();  
     },
 
     addActive: function() {
@@ -65,30 +64,42 @@ createApp( {
       inputC = this.inputCounter ;
 
       if (inputC == 0) {
-        return this.thumbs.thumb1 = 'active', console.log('return if',this.thumbs)
+          this.thumbs.thumb1 = 'active'
       }else if (inputC == 1) {
-        return this.thumbs.thumb2 = 'active', console.log('return if',this.thumbs)
+          this.thumbs.thumb2 = 'active'
       }else if (inputC == 2) {
-        return this.thumbs.thumb3 = 'active', console.log('return if',this.thumbs)
+          this.thumbs.thumb3 = 'active'
       }else if (inputC == 3) {
-        return this.thumbs.thumb4 = 'active', console.log('return if',this.thumbs)
+          this.thumbs.thumb4 = 'active'
       }else if (inputC == 4) {
-        return this.thumbs.thumb5 = 'active', console.log('return if',this.thumbs)
+          this.thumbs.thumb5 = 'active'
       }
-      return console.log('return else',this.thumbs.thumb1)
+      console.log('thumbs',this.thumbs)
   },
 
   changeActive: function(numb){
     this.inputCounter = numb - 1;
-    this.addActive()
-    console.log(numb)
-  }
+    this.addActive();
+    console.log(numb);
+  },
+  
+  over: function(event){
+    return clearInterval(this.autoScroll),
+    console.log(event)
+  },
+  
+  leave: function(event){
+    return this.autoScroll = setInterval(this.next,3000),
+    console.log(event)
+  },
+
 
   },
   
   mounted(){
+
+
     this.addActive();
-    console.log(this.thumbs.thumb1)
     console.log('mounted')
   }
 
