@@ -20,7 +20,8 @@ createApp( {
                 "assets-slider/img/04.webp",
                 "assets-slider/img/05.webp",
                 ],
-
+      
+      indexCounter : 3,         
 
     }
   },
