@@ -60,7 +60,7 @@ body{
 
 .thumbs img.active{
   border: 2px solid white;
-  opacity: 1;
+  opacity: .75;
 }
 
 .buttons{

@@ -14,30 +14,29 @@ const { createApp } = Vue ;
 createApp( {
   data() {
     return {
+      
       images : [
         "assets-slider/img/01.webp",
         "assets-slider/img/02.webp",
         "assets-slider/img/03.webp",
         "assets-slider/img/04.webp",
-        "assets-slider/img/05.webp",],
-
-      autoScroll : null,
-
-      inputCounter : 0,
-
-      on : false,
-
-      offCanv: 'off',
-      nextClass: 'next',
-      prevClass: 'prev',
+        "assets-slider/img/05.webp",
+      ],
 
       thumbs : {
-        thumb1 : 'act',
+        thumb1 : '',
         thumb2 : '',
         thumb3 : '',
         thumb4 : '',
         thumb5 : '',
-      }
+      },
+
+      inputCounter : 0,
+      nextClass: 'next',
+      prevClass: 'prev',
+      autoScroll : null,
+      on : false,
+      offCanv: 'off',
     }
   },
 
@@ -46,10 +45,9 @@ createApp( {
     // prev e next button
     next: function(){
       if (this.inputCounter > this.images.length -2 ) {
-        return  this.inputCounter = 0 , this.addActive(), console.log('next zero') 
+        return  this.inputCounter = 0 , console.warn('next ZERO') , this.addActive()
         }
-          this.inputCounter++,
-          console.log('next') ; this.addActive();       
+          this.inputCounter++; console.log('next', new Date) ; this.addActive();       
     },// -------------------------------------------
     prev: function(){
       if (this.inputCounter <= 0 ) {
