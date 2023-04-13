@@ -29,16 +29,20 @@ createApp( {
 
   methods: {
     next: function(){
-      return console.log('next',this.inputCounter, this.images.length - 1),
-      // if (this.inputCounter > this.images.length ) {
-      // this.inputCounter = 0;  
-      // },
-      this.inputCounter++
+      if (this.inputCounter > this.images.length -2 ) {
+        return this.inputCounter = 0;  
+        }
+        return this.inputCounter++,
+        console.log('next',this.inputCounter, this.images.length - 1)
       
     },
     prev: function(){
-      return console.log('prev',this.inputCounter),
-      this.inputCounter--
+      if (this.inputCounter < 1 ) {
+        this.inputCounter = this.images.length;  
+        }
+      return this.inputCounter--, 
+      console.log('prev',this.inputCounter)
+
     },
 
   },
